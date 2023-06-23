@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-    kr.sprouts.template.autoconfigure.configurations.TemplateConfiguration\
+    kr.sprouts.autoconfigure.configurations.LogstashAppenderConfiguration\

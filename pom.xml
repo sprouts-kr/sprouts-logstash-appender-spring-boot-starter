@@ -8,10 +8,10 @@
 		<version>2.7.12</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>kr.sprouts.template.autoconfigure</groupId>
-	<artifactId>sprouts-spring-boot-autoconfigure</artifactId>
+	<groupId>kr.sprouts.autoconfigure</groupId>
+	<artifactId>sprouts-logstash-appender-spring-boot-starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sprouts-spring-boot-autoconfigure</name>
+	<name>sprouts-logstash-appender-spring-boot-starter</name>
 	<properties>
 		<java.version>11</java.version>
 		<sonar.qualitygate.wait>true</sonar.qualitygate.wait>

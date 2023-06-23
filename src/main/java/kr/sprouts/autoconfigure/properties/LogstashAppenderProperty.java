@@ -1,9 +1,9 @@
-package kr.sprouts.template.autoconfigure.properties;
+package kr.sprouts.autoconfigure.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "sprouts.template")
-public class TemplateProperty {
+@ConfigurationProperties(prefix = "sprouts.logstash-appender")
+public class LogstashAppenderProperty {
     private String id;
 
     public String getId() {
