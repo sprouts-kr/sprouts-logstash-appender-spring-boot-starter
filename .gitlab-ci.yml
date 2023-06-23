@@ -1,0 +1,21 @@
+variables:
+  MAVEN_IMAGE: registry.gitlab.sprouts.kr/sandbox/sandbox-maven-git:latest
+
+include:
+  - project: "sprouts/library/gitlab-ci"
+    ref: 0.0.1
+    file:
+      - 'template/spring-boot-autoconfigure/prepare.gitlab-ci.yml'
+      - 'template/spring-boot-autoconfigure/build.gitlab-ci.yml'
+      - 'template/spring-boot-autoconfigure/test.gitlab-ci.yml'
+      - 'template/spring-boot-autoconfigure/quality.gitlab-ci.yml'
+      - 'template/spring-boot-autoconfigure/deploy.gitlab-ci.yml'
+      - 'template/spring-boot-autoconfigure/finish.gitlab-ci.yml'
+
+stages:
+  - prepare
+  - build
+  - test
+  - quality
+  - deploy
+  - finish
