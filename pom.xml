@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>kr.sprouts.autoconfigure</groupId>
 	<artifactId>sprouts-logstash-appender-spring-boot-starter</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.3</version>
 	<name>sprouts-logstash-appender-spring-boot-starter</name>
 	<properties>
 		<java.version>11</java.version>
