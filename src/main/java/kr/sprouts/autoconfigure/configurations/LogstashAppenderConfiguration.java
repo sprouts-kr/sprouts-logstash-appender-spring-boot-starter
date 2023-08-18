@@ -25,7 +25,7 @@ public class LogstashAppenderConfiguration {
         this.initializeLogstashAppender((LoggerContext) LoggerFactory.getILoggerFactory());
 
         LoggerFactory.getLogger(LogstashAppenderConfiguration.class)
-                .info(String.format("Initialized %s", LogstashAppenderConfiguration.class.getName()));
+                .info(String.format("Initialized %s", LogstashAppenderConfiguration.class.getSimpleName()));
     }
 
     private void initializeLogstashAppender(LoggerContext loggerContext) {
