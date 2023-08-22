@@ -8,18 +8,23 @@
 		<version>2.7.14</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>kr.sprouts.autoconfigure</groupId>
+	<groupId>kr.sprouts.framework.autoconfigure</groupId>
 	<artifactId>sprouts-logstash-appender-spring-boot-starter</artifactId>
 	<version>0.0.4-SNAPSHOT</version>
 	<name>sprouts-logstash-appender-spring-boot-starter</name>
 	<properties>
-		<java.version>11</java.version>
 		<sonar.qualitygate.wait>true</sonar.qualitygate.wait>
+		<java.version>11</java.version>
+		<!-- dependency -->
+		<logstash.logback.encoder.version>7.3</logstash.logback.encoder.version>
+		<!-- plugin -->
+		<build.helper.maven.plugin.version>3.4.0</build.helper.maven.plugin.version>
+		<versions.maven.plugin.version>2.16.0</versions.maven.plugin.version>
 	</properties>
 	<repositories>
 		<!-- personal repository -->
 		<repository>
-			<id>nexus3-maven-public</id>
+			<id>personal-public</id>
 			<url>https://nexus.sprouts.kr/repository/maven/</url>
 		</repository>
 	</repositories>
@@ -32,41 +37,35 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-autoconfigure-processor</artifactId>
-			<optional>true</optional>
 		</dependency>
 
 		<!-- logging -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<version>${log4j2.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-to-slf4j</artifactId>
-			<version>${log4j2.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-core</artifactId>
-			<version>${logback.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>net.logstash.logback</groupId>
 			<artifactId>logstash-logback-encoder</artifactId>
-			<version>7.3</version>
+			<version>${logstash.logback.encoder.version}</version>
 		</dependency>
 
 		<!-- lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
 			<optional>true</optional>
 		</dependency>
 
@@ -90,6 +89,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>${build.helper.maven.plugin.version}</version>
 				<executions>
 					<execution>
 						<id>parse-version</id>
@@ -102,6 +102,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>versions-maven-plugin</artifactId>
+				<version>${versions.maven.plugin.version}</version>
 			</plugin>
 		</plugins>
 	</build>
@@ -133,6 +134,7 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>versions-maven-plugin</artifactId>
+						<version>${versions.maven.plugin.version}</version>
 						<executions>
 							<execution>
 								<goals>
@@ -163,6 +165,7 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>versions-maven-plugin</artifactId>
+						<version>${versions.maven.plugin.version}</version>
 						<executions>
 							<execution>
 								<goals>

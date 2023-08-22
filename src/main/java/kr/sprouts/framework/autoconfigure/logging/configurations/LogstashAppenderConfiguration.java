@@ -1,8 +1,8 @@
-package kr.sprouts.autoconfigure.configurations;
+package kr.sprouts.framework.autoconfigure.logging.configurations;
 
 import ch.qos.logback.classic.AsyncAppender;
 import ch.qos.logback.classic.LoggerContext;
-import kr.sprouts.autoconfigure.properties.LogstashAppenderProperty;
+import kr.sprouts.framework.autoconfigure.logging.properties.LogstashAppenderConfigurationProperty;
 import lombok.extern.slf4j.Slf4j;
 import net.logstash.logback.appender.LogstashTcpSocketAppender;
 import net.logstash.logback.encoder.LogstashEncoder;
@@ -15,14 +15,14 @@ import java.net.InetSocketAddress;
 import java.util.stream.Collectors;
 
 @Configuration
-@EnableConfigurationProperties(value = { LogstashAppenderProperty.class })
+@EnableConfigurationProperties(value = { LogstashAppenderConfigurationProperty.class })
 @Slf4j
 public class LogstashAppenderConfiguration {
 
-    private final LogstashAppenderProperty logstashAppenderProperty;
+    private final LogstashAppenderConfigurationProperty logstashAppenderConfigurationProperty;
 
-    public LogstashAppenderConfiguration(LogstashAppenderProperty logstashAppenderProperty) {
-        this.logstashAppenderProperty = logstashAppenderProperty;
+    public LogstashAppenderConfiguration(LogstashAppenderConfigurationProperty logstashAppenderConfigurationProperty) {
+        this.logstashAppenderConfigurationProperty = logstashAppenderConfigurationProperty;
 
         this.initializeLogstashAppender((LoggerContext) LoggerFactory.getILoggerFactory());
 
@@ -35,13 +35,13 @@ public class LogstashAppenderConfiguration {
 
         LogstashEncoder logstashEncoder = new LogstashEncoder();
         logstashEncoder.setThrowableConverter(throwableConverter);
-        logstashEncoder.setCustomFields("{\"identifier\":\"" + this.logstashAppenderProperty.getIdentifier() + "\"}");
+        logstashEncoder.setCustomFields("{\"identifier\":\"" + this.logstashAppenderConfigurationProperty.getIdentifier() + "\"}");
 
         LogstashTcpSocketAppender logstashTcpSocketAppender = new LogstashTcpSocketAppender();
-        logstashTcpSocketAppender.setName(this.logstashAppenderProperty.getName().toUpperCase());
+        logstashTcpSocketAppender.setName(this.logstashAppenderConfigurationProperty.getName().toUpperCase());
         logstashTcpSocketAppender.setContext(loggerContext);
         logstashTcpSocketAppender.setEncoder(logstashEncoder);
-        logstashTcpSocketAppender.addDestinations(this.logstashAppenderProperty.getDestinations().stream()
+        logstashTcpSocketAppender.addDestinations(this.logstashAppenderConfigurationProperty.getDestinations().stream()
                 .map(destination -> new InetSocketAddress(destination.getHost(), destination.getPort()))
                 .collect(Collectors.toList())
                 .toArray(InetSocketAddress[]::new)
@@ -51,7 +51,7 @@ public class LogstashAppenderConfiguration {
 
         AsyncAppender asyncLogstashAppender = new AsyncAppender();
         asyncLogstashAppender.setContext(loggerContext);
-        asyncLogstashAppender.setName("ASYNC_" + this.logstashAppenderProperty.getName().toUpperCase());
+        asyncLogstashAppender.setName("ASYNC_" + this.logstashAppenderConfigurationProperty.getName().toUpperCase());
         asyncLogstashAppender.addAppender(logstashTcpSocketAppender);
 
         asyncLogstashAppender.start();
