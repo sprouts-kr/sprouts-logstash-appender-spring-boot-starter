@@ -1,6 +1,6 @@
-package kr.sprouts.autoconfigure.configurations;
+package kr.sprouts.framework.autoconfigure.logging.configurations;
 
-import kr.sprouts.autoconfigure.properties.LogstashAppenderProperty;
+import kr.sprouts.framework.autoconfigure.logging.properties.LogstashAppenderConfigurationProperty;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.AutoConfigurations;
@@ -43,12 +43,12 @@ class LogstashAppenderConfigurationTest {
 
         this.applicationContextRunner.withPropertyValues(properties).run(
                 context -> {
-                    Assertions.assertThat(context.getBean(LogstashAppenderProperty.class).getName()).isEqualTo("appender_name");
-                    assertThat(context.getBean(LogstashAppenderProperty.class).getIdentifier()).isEqualTo("appender_identifier");
-                    assertThat(context.getBean(LogstashAppenderProperty.class).getDestinations().stream().map(
+                    Assertions.assertThat(context.getBean(LogstashAppenderConfigurationProperty.class).getName()).isEqualTo("appender_name");
+                    assertThat(context.getBean(LogstashAppenderConfigurationProperty.class).getIdentifier()).isEqualTo("appender_identifier");
+                    assertThat(context.getBean(LogstashAppenderConfigurationProperty.class).getDestinations().stream().map(
                             destination -> new InetSocketAddress(destination.getHost(), destination.getPort())
                     ).collect(Collectors.toList())).contains(new InetSocketAddress("127.0.0.1", 5045));
-                    assertThat(context.getBean(LogstashAppenderProperty.class).getDestinations().stream().map(
+                    assertThat(context.getBean(LogstashAppenderConfigurationProperty.class).getDestinations().stream().map(
                             destination -> new InetSocketAddress(destination.getHost(), destination.getPort())
                     ).collect(Collectors.toList())).contains(new InetSocketAddress("192.168.0.2", 5045));
                 }
