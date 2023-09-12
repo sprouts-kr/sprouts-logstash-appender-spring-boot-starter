@@ -13,7 +13,6 @@
 	<version>0.0.5-SNAPSHOT</version>
 	<name>sprouts-logstash-appender-spring-boot-starter</name>
 	<properties>
-		<sonar.qualitygate.wait>true</sonar.qualitygate.wait>
 		<java.version>11</java.version>
 		<!-- dependency -->
 		<logstash.logback.encoder.version>7.3</logstash.logback.encoder.version>
