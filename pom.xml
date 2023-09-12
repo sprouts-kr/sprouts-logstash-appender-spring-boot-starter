@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.14</version>
+		<version>2.7.15</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>kr.sprouts.framework.autoconfigure</groupId>
@@ -13,7 +13,6 @@
 	<version>0.0.5-SNAPSHOT</version>
 	<name>sprouts-logstash-appender-spring-boot-starter</name>
 	<properties>
-		<sonar.qualitygate.wait>true</sonar.qualitygate.wait>
 		<java.version>11</java.version>
 		<!-- dependency -->
 		<logstash.logback.encoder.version>7.3</logstash.logback.encoder.version>
@@ -22,10 +21,10 @@
 		<versions.maven.plugin.version>2.16.0</versions.maven.plugin.version>
 	</properties>
 	<repositories>
-		<!-- personal repository -->
+		<!-- personal-repository -->
 		<repository>
-			<id>personal-public</id>
-			<url>https://nexus.sprouts.kr/repository/maven/</url>
+			<id>personal-repository</id>
+			<url>https://nexus.devops.sprouts.kr/repository/maven/</url>
 		</repository>
 	</repositories>
 	<dependencies>
