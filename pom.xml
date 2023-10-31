@@ -15,7 +15,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<!-- dependency -->
-		<logstash.logback.encoder.version>7.3</logstash.logback.encoder.version>
+		<logstash.logback.encoder.version>7.4</logstash.logback.encoder.version>
 	</properties>
 	<repositories>
 		<!-- personal-repository -->
