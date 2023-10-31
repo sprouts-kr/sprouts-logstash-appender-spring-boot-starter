@@ -7,18 +7,15 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 @ConfigurationProperties(prefix = "sprouts.logstash-appender")
+@Getter @Setter
 public class LogstashAppenderConfigurationProperty {
-    @Getter @Setter
     private String name;
-    @Getter @Setter
     private String identifier;
-    @Getter @Setter
     private List<Destination> destinations;
 
+    @Getter @Setter
     public static class Destination {
-        @Getter @Setter
         private String host;
-        @Getter @Setter
         private Integer port;
     }
 }
