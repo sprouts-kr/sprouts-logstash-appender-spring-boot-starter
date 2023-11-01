@@ -8,13 +8,13 @@ import net.logstash.logback.appender.LogstashTcpSocketAppender;
 import net.logstash.logback.encoder.LogstashEncoder;
 import net.logstash.logback.stacktrace.ShortenedThrowableConverter;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 
 import java.net.InetSocketAddress;
 import java.util.stream.Collectors;
 
-@Configuration
+@AutoConfiguration
 @EnableConfigurationProperties(value = { LogstashAppenderConfigurationProperty.class })
 @Slf4j
 public class LogstashAppenderConfiguration {
