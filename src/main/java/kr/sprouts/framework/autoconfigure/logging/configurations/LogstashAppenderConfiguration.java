@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 import java.net.InetSocketAddress;
-import java.util.stream.Collectors;
 
 @AutoConfiguration
 @EnableConfigurationProperties(value = { LogstashAppenderConfigurationProperty.class })
@@ -43,7 +42,7 @@ public class LogstashAppenderConfiguration {
         logstashTcpSocketAppender.setEncoder(logstashEncoder);
         logstashTcpSocketAppender.addDestinations(this.logstashAppenderConfigurationProperty.getDestinations().stream()
                 .map(destination -> new InetSocketAddress(destination.getHost(), destination.getPort()))
-                .collect(Collectors.toList())
+                .toList()
                 .toArray(InetSocketAddress[]::new)
         );
 
